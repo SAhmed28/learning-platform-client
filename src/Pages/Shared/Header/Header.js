@@ -7,10 +7,16 @@ import logo from './logo.png'
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-    // const {user} = useContext();
-    const user = null;
+    const {user, logout} = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logout()
+        .then(()=>{})
+        .catch(error=>console.error);
+    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -25,26 +31,29 @@ const Header = () => {
                             <button>Dark/Light</button>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">
+                            <>
                                 {
-                                    user?.uid ?
+                                    user?.uid &&
                                         <>
                                             <span>{user?.displayName}</span>
-                                            <Button className='mx-2' variant="light">Log Out</Button>
-                                        </>
-                                        :
-                                        <>
-                                            <Link to='/login' className='mx-2'>Login</Link>
-                                            <Link to='/register'>Register</Link>
                                         </>
                                 }
-                            </Nav.Link>
+                            </>
                             <Nav.Link eventKey={2} href="#memes">
                                 {
                                     user?.photoURL ?
                                         <Image style={{ height: '40px', width: '40px' }} src={user.photoURL} roundedCircle></Image>
                                         :
                                         <FaUser></FaUser>
+                                }
+                                {
+                                    user?.uid ?
+                                        <Button onClick={handleSignOut} className='mx-2' variant="light">Log Out</Button>
+                                        :
+                                        <>
+                                            <Link to='/login' className='mx-2'>Login</Link>
+                                            <Link to='/register'>Register</Link>
+                                        </>
                                 }
                             </Nav.Link>
                         </Nav>
