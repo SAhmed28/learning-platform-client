@@ -10,16 +10,20 @@ import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
-    const {user, logout} = useContext(AuthContext);
+    const {user, logout, theme, setTheme} = useContext(AuthContext);
 
     const handleSignOut = () => {
         logout()
         .then(()=>{})
         .catch(error=>console.error);
     }
+
+    const handlemode = (event) => {
+        setTheme(curr => curr === "dark" ? "light" : "dark");
+    }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg={theme} variant={theme}>
                 <Container>
                     <Navbar.Brand href="#home"><img src={logo} style={{ height: '25px' }} alt="logo" />Bright</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -28,14 +32,14 @@ const Header = () => {
                             <Link className='px-3' to="/courses">Courses</Link>
                             <Link className='px-3' to="/faq">FAQ</Link>
                             <Link className='px-3' to="/blog">Blog</Link>
-                            <button>Dark/Light</button>
+                            <button onClick={handlemode}>Dark Mode</button>
                         </Nav>
                         <Nav>
                             <>
                                 {
                                     user?.uid &&
                                         <>
-                                            <span>{user?.displayName}</span>
+                                            <a className='my-auto' href="#">{user?.displayName}</a>
                                         </>
                                 }
                             </>

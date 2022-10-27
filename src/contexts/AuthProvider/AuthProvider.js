@@ -11,6 +11,7 @@ const auth = getAuth(app);
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [theme,setTheme] = useState('light');
 
     const providerLogin = (provider) => {
         setLoading(true);
@@ -39,7 +40,7 @@ const AuthProvider = ({children}) => {
         return sendEmailVerification(auth.currentUser);
     }
 
-    const authInfo = { user, loading, setLoading, varyfyEmail, updateUserProfile, providerLogin, logout, createUser, login};
+    const authInfo = { user, loading,theme,setTheme, setLoading, varyfyEmail, updateUserProfile, providerLogin, logout, createUser, login};
 
     // manage users
     useEffect(()=>{

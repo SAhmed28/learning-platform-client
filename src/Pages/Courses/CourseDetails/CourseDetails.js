@@ -12,6 +12,10 @@ const CourseDetails = () => {
     const { _id, title, description, image, rating } = singleCourseDetails;
     const navigate = useNavigate();
 
+    if(singleCourseDetails === ''){
+        navigate('/error');
+    }
+
     const handleCheckout = () => {
         navigate(`/checkout/${_id}`);
     }
