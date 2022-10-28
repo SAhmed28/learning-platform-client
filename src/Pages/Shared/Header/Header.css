@@ -1,0 +1,7 @@
+.dark {
+    background: #30363d;
+    color: aliceblue;
+}
+.dark .card{
+    color: black;
+}

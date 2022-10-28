@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const LeftSideNav = () => {
     const [courses, setCourses] = useState([]);
+    const {theme} = useContext(AuthContext);
 
     useEffect(()=>{
         fetch('http://localhost:5000/courses')
@@ -14,7 +16,7 @@ const LeftSideNav = () => {
     console.log('courses', courses);
 
     return (
-        <div className='my-3'>
+        <div className= {theme}>
             <h3 className='py-3'>List of Courses</h3>
             {
                courses.map(singleCourse => <p key={singleCourse._id}><Link to={`/courses/${singleCourse._id}`}>{singleCourse.title}</Link></p>)

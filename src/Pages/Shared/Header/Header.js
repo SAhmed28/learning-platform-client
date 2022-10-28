@@ -8,6 +8,7 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import './Header.css'
 
 const Header = () => {
     const {user, logout, theme, setTheme} = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Header = () => {
         .catch(error=>console.error);
     }
 
-    const handlemode = (event) => {
+    const handlemode = () => {
         setTheme(curr => curr === "dark" ? "light" : "dark");
     }
     return (

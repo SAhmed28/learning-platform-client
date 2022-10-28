@@ -16,12 +16,6 @@ const CourseDetails = () => {
 
     const ref = React.createRef();
 
-    // const componentRef = useRef();
-    // const handlePdfDownload = useReactToPrint({
-    //     content: () => componentRef.current,
-    //     documentTitle: 'course-details',
-    //     onAfterPrint: () => alert('Print success')
-    // });
 
     if (singleCourseDetails === '') {
         navigate('/error');
