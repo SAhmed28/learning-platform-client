@@ -19,7 +19,7 @@ const LeftSideNav = () => {
         <div className= {theme}>
             <h3 className='py-3'>List of Courses</h3>
             {
-               courses.map(singleCourse => <p key={singleCourse._id}><Link to={`/courses/${singleCourse._id}`}>{singleCourse.title}</Link></p>)
+               courses.map(singleCourse => <p className="my-3" key={singleCourse._id}><Link to={`/courses/${singleCourse._id}`}>{singleCourse.title}</Link></p>)
             }
         </div>
     );

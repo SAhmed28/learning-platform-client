@@ -44,7 +44,7 @@ const Header = () => {
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"} to="/courses">Courses</Link>
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/faq">FAQ</Link>
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/blog">Blog</Link>
-                            <button className='ms-5' onClick={handlemode}>{btnText}</button>
+                            <button className='ms-5 btn btn-outline-warning' onClick={handlemode}>{btnText}</button>
                         </Nav>
                         <Nav>
                             <>
