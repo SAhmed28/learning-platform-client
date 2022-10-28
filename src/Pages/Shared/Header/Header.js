@@ -40,7 +40,7 @@ const Header = () => {
                     <Navbar.Brand href="#home"><img src={logo} style={{ height: '25px' }} alt="logo" />Bright</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav className="">
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"} to="/courses">Courses</Link>
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/faq">FAQ</Link>
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/blog">Blog</Link>

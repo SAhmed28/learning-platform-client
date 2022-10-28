@@ -27,10 +27,10 @@ const CourseDetails = () => {
 
     return (
         <div>
-            <div className='d-flex my-3'>
+            <div className='d-flex justify-content-between my-3'>
                 <h2>Course Details: </h2>
                 <Pdf targetRef={ref} filename="code-example.pdf">
-                    {({ toPdf }) => <button onClick={toPdf} className='btn btn-primary mx-4'><FaCloudDownloadAlt /> Download PDF</button>}
+                    {({ toPdf }) => <button onClick={toPdf} className='btn btn-primary'><FaCloudDownloadAlt /> Download PDF</button>}
                 </Pdf>
                 {/* <button className='btn btn-primary mx-4'> <FaCloudDownloadAlt /> Download PDF</button> */}
             </div>
