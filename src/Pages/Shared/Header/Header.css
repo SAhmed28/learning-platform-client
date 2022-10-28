@@ -1,7 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+  
+ol, ul {
+    list-style: none;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+img {
+    border: 0px;
+}
+
+h1, h2, h3, h4, h5, h6, ol, ul, p, address {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 .dark {
     background: #30363d;
     color: aliceblue;
 }
 .dark .card{
     color: black;
+}
+.dark .blog h4, .dark .blog p, .dark .blog ul{
+    color: black;
+}
+
+.navbar-nav a{
+    margin: 0 5px;
+    padding: 0.2rem 1rem;
 }

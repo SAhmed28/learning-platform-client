@@ -9,9 +9,12 @@ import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import './Header.css'
+import { useState } from 'react';
 
 const Header = () => {
     const {user, logout, theme, setTheme} = useContext(AuthContext);
+
+    const [btnText, setBtnText] = useState("Dark Mode");
 
     const handleSignOut = () => {
         logout()
@@ -19,8 +22,16 @@ const Header = () => {
         .catch(error=>console.error);
     }
 
-    const handlemode = () => {
+    const handlemode = (event) => {
         setTheme(curr => curr === "dark" ? "light" : "dark");
+
+        if(btnText === "Dark Mode"){
+            setBtnText("Light Mode")
+        }
+        else{
+            setBtnText("Dark Mode");
+        }
+
     }
     return (
         <div>
@@ -30,10 +41,10 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Link className='px-3' to="/courses">Courses</Link>
-                            <Link className='px-3' to="/faq">FAQ</Link>
-                            <Link className='px-3' to="/blog">Blog</Link>
-                            <button onClick={handlemode}>Dark Mode</button>
+                            <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"} to="/courses">Courses</Link>
+                            <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/faq">FAQ</Link>
+                            <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/blog">Blog</Link>
+                            <button className='ms-5' onClick={handlemode}>{btnText}</button>
                         </Nav>
                         <Nav>
                             <>

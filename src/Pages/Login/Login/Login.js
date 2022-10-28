@@ -9,7 +9,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom'
 import toast from 'react-hot-toast';
 
 const Login = () => {
-    const { providerLogin, login, setLoading } = useContext(AuthContext);
+    const { providerLogin, login, setLoading, theme, setTheme } = useContext(AuthContext);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
@@ -86,8 +86,8 @@ const Login = () => {
 
 
             <ButtonGroup size="lg" className="my-4">
-                <Button onClick={handleGoogleSignIn} className='mx-2' variant="outline-primary"> <FaGoogle /> Login with Google</Button>
-                <Button onClick={handleGithubSignIn} className='mx-2' variant="outline-dark"> <FaGithub /> Login with Github</Button>
+                <Button onClick={handleGoogleSignIn} className='mx-2' variant={theme === "dark" ? "primary" : "outline-primary"}> <FaGoogle /> Login with Google</Button>
+                <Button onClick={handleGithubSignIn} className='mx-2' variant={theme === "dark" ? "dark" : "outline-dark"}> <FaGithub /> Login with Github</Button>
             </ButtonGroup>
 
 
