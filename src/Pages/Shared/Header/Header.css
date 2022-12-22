@@ -9,7 +9,8 @@ ol, ul {
 }
 
 a, a:hover {
-    text-decoration: none;
+    text-decoration: none !important;
+    
 }
 
 img {

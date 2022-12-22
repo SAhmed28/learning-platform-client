@@ -1,0 +1,8 @@
+.left-nav a{
+    color: #0EB1D2;
+    font-size: 1.2rem;
+}
+.left-nav p{
+    padding: 1rem;
+    border-bottom: 2px solid #0EB1D2;
+}

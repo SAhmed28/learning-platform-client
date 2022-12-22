@@ -39,7 +39,7 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand href="#home"><img src={logo} style={{ height: '25px' }} alt="logo" />Bright</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Navbar.Collapse id="responsive-navbar-nav" className='d-flex justify-content-between'>
                         <Nav className="">
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"} to="/courses">Courses</Link>
                             <Link className={theme === 'dark' ? "btn btn-outline-info" : "btn btn-info"}  to="/faq">FAQ</Link>
